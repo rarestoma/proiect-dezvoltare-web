@@ -102,6 +102,6 @@ function loadDoc() {
      document.getElementById("demo").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "text.txt", true);
+  xhttp.open("POST", "text.txt", true);
   xhttp.send();
 }
