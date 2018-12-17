@@ -1,0 +1,84 @@
+<!-- taguri semantice folosite: header, nav, section, footer -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Proiect Dezvoltare Web</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body onload="createTable()">
+
+<header class="header">
+  <h1>Munții Bucegi</h1>
+</header>
+
+<nav class="navbar">
+  <a href="index.html" class="active">Acasa</a>
+  <a href="resurse.html">Resurse</a>
+  <a href="geografie.html">Geografie</a>
+  <a href="clima.html">Clima</a>
+</nav>
+
+<div id="demo">
+  <h1>The XMLHttpRequest Object</h1>
+  <button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+
+<section>
+  <div class="row">
+    <div class="col-3 text-center">
+        <h2>RESURSE</h2>
+        <img src="assets/img/calcar.jpg">
+        <p>Bucegii au puține bogății naturale,
+          folosindu-se pentru piatră de construcții sau
+          fiind folosiți ca pășuni pentru oi, parte din transhumanță.
+        </p>
+        <a href="resurse.html">Afla mai multe</a>
+    </div>
+    <div class="col-3 text-center">
+        <h2>GEOGRAFIE</h2>
+        <img src="assets/img/sfinx.jpg">
+        <p>Masivul Bucegi are o formă de potcoavă deschisă
+          spre sud, din centrul căreia izvorește râul Ialomița.
+        </p>
+        <a href="geografie.html">Afla mai multe</a>
+      </div>
+    <div class="col-3 text-center">
+      <h2>CLIMA</h2>
+      <img src="assets/img/clima.jpg">
+      <p>Clima se caracterizează prin temperaturi medii
+        de <b>2-6°</b> Celsius și <b>0-2°</b> Celsius la peste <b>1800 m</b> altitudine,
+        precipitații abundente de <b>800–1200 mm/an</b> și vânturi puternice.
+      </p>
+      <a href="clima.html">Afla mai multe</a>
+    </div>
+  </div>
+</section>
+<section class="reviews">
+  <div class="text-center">
+    <h2>Adauga un review</h2>
+  </div>
+  <p>
+    <input type="button" id="addRow" value="Add New Row" onclick="addRow()" />
+  </p>
+
+  <!--In acest div va fi adaugat tabelul-->
+  <div id="content"></div>
+
+  <p>
+    <input type="button" id="bt" value="Sumbit Data" onclick="sumbit()" />
+  </p>
+
+  <div id="info"></div>
+
+</section>
+<footer class="footer">
+  <h2>Proiect realizat de Toma Rares</h2>
+</footer>
+
+<script src="assets/js/javascript.js"></script>
+</body>
+</html>
