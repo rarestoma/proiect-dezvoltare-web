@@ -95,17 +95,13 @@
 
 // AJAX
 
-function reqListener() {
-  var data = JSON.parse(this.responseText);
-  console.log(data);
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.send();
 }
-
-function reqError(err) {
-  console.log('Fetch Error :-S', err);
-}
-
-var oReq = new XMLHttpRequest();
-oReq.onload = reqListener;
-oReq.onerror = reqError;
-oReq.open('get', '../db.json', true);
-oReq.send();
