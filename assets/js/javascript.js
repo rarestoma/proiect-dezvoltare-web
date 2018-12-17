@@ -107,5 +107,5 @@ function reqError(err) {
 var oReq = new XMLHttpRequest();
 oReq.onload = reqListener;
 oReq.onerror = reqError;
-oReq.open('get', '../../db.json', true);
+oReq.open('get', '../db.json', true);
 oReq.send();
