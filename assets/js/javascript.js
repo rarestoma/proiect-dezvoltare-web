@@ -79,7 +79,7 @@
 
 //AJAX
 
-fetch('../../db.json')
+fetch('db.json')
   .then(
     function(response) {
       if (response.status !== 200) {
