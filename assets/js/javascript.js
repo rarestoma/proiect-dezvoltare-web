@@ -100,8 +100,9 @@ fetch('db.json')
   .catch(function(err) {
     console.log('Fetch Error', err);
   });
+
   console.log("test");
-  console.log(info);
+  console.log(data);
 
 function showData(){
   var datatable = document.createElement('table');
