@@ -95,10 +95,25 @@ fetch('db.json')
         var info = new Array();
         info = data;
 
-        console.log(info);
       });
     }
   )
   .catch(function(err) {
-    console.log('Fetch Error :-S', err);
+    console.log('Fetch Error', err);
   });
+
+function showData(){
+  var datatable = document.createElement('table');
+  datatable.setAttribute('id', 'data');
+
+  var tr = datatable.insertRow(-1);
+
+  for (var h = 0; h < info.length; h++) {
+      var th = document.createElement('th');
+      th.innerHTML = info[h];
+      tr.appendChild(th);
+  }
+
+  var div = document.getElementById('data');
+  div.appendChild(datatable);
+}
