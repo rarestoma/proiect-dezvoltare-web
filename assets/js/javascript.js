@@ -114,6 +114,6 @@ function showData(){
       tr.appendChild(th);
   }
 
-  var div = document.getElementById('data');
+  var div = document.getElementById('di');
   div.appendChild(datatable);
 }
