@@ -1,7 +1,7 @@
 <!-- taguri semantice folosite: header, nav, section, footer -->
 
 <!DOCTYPE html>
-<html lang="ro">
+<html>
 <head>
 <title>Proiect Dezvoltare Web</title>
 <meta charset="UTF-8">
@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
-<body>
+<body onmousemove="myFunction(event)">
 
 <header class="header">
   <h1>Geografia munților Bucegi</h1>
@@ -22,7 +22,7 @@
   <a href="clima.html">Clima</a>
 </nav>
 
-
+<section>
   <div class="row">
     <div class="col-6">
       <p>Masivul Bucegi are o formă de potcoavă deschisă spre sud,
@@ -63,18 +63,18 @@
        </p>
     </div>
     <div class="col-6">
-      <img src="assets/img/bucegi.jpg" id="img1" onmousemove="myFunction(event)" alt="Image">
+      <img src="assets/img/bucegi.jpg" id="img1">
       <div class="row">
         <div class="col-6">
-          <img src="assets/img/mount.jpg" alt="Image">
+          <img src="assets/img/mount.jpg" id="img2">
         </div>
         <div class="col-6">
-          <img src="assets/img/lake.jpg" alt="Image">
+          <img src="assets/img/lake.jpg" id="img3">
         </div>
       </div>
     </div>
   </div>
-
+</section>
 <footer class="footer">
   <h2>Proiect realizat de Toma Rares</h2>
 </footer>

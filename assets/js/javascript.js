@@ -61,64 +61,55 @@
        empTab.deleteRow(oButton.parentNode.parentNode.rowIndex);       // BUTTON -> TD -> TR.
    }
 
-   // Salvarea datelor din tabel.
-   function sumbit() {
-       var myTab = document.getElementById('empTable');
-       var values = new Array();
-
-       for (row = 1; row < myTab.rows.length - 1; row++) { // Trecem prin celulele fiecarei linii
-           for (c = 0; c < myTab.rows[row].cells.length; c++) {
-
-               var element = myTab.rows.item(row).cells[c];
-               if (element.childNodes[0].getAttribute('type') == 'text') {
-                   values.push("'" + element.childNodes[0].value + "'");
-               }
-           }
-       }
-       console.log(values);
-   }
 
 // Mouse event
 
-
-  var img1 = document.getElementById("img1");
 
   function myFunction(e) {
 
     posX = event.clientX - window.innerWidth/2;
     posY = event.clientY - window.innerWidth/6;
-    console.log(img1);
 
-    img1.style.transform = "perspective(500px) rotateY("+posX*0.05+"deg) rotateX("+posY*(-0.05)+"deg)" ;
+    img1.style.transform = "perspective(500px) rotateY("+posX*0.01+"deg) rotateX("+posY*(-0.01)+"deg)" ;
+    img2.style.transform = "perspective(500px) rotateY("+posX*0.01+"deg) rotateX("+posY*(-0.01)+"deg)" ;
+    img3.style.transform = "perspective(500px) rotateY("+posX*0.01+"deg) rotateX("+posY*(-0.01)+"deg)" ;
 
   };
 
 // AJAX
 
-function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-     document.getElementById("demo").innerHTML = this.responseText;
-    }
-  };
-  xhttp.open("GET", "text.txt", true);
-  xhttp.send();
+function reqListener() {
+  var data = JSON.parse(this.responseText);
+  console.log(data);
 }
 
-function send() {
-  var http = new XMLHttpRequest();
-  var url = 'text.txt';
-  var params = 'orem=ipsum&name=binny';
-  http.open('POST', url, true);
+function reqError(err) {
+  console.log('Fetch Error :-S', err);
+}
 
-  //Send the proper header information along with the request
-  http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+var oReq = new XMLHttpRequest();
+oReq.onload = reqListener;
+oReq.onerror = reqError;
+oReq.open('get', '../../db.json', true);
+oReq.send();
 
-  http.onreadystatechange = function() {//Call a function when the state changes.
-      if(http.readyState == 4 && http.status == 200) {
-          alert(http.responseText);
+//AJAX
+
+fetch('../db.json')
+  .then(
+    function(response) {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
       }
-  }
-  http.send(params);
-}
+
+      // Examine the text in the response
+      response.json().then(function(data) {
+        console.log(data);
+      });
+    }
+  )
+  .catch(function(err) {
+    console.log('Fetch Error :-S', err);
+  });

@@ -126,6 +126,22 @@ table [type="number"] {
   padding: 50px;
 }
 
+input[type="button"]{
+
+  padding: 10px 15px;
+  border: 1px solid grey;
+  background: white;
+  border-radius: 5px;
+  font-weight: 400;
+  font-size: 12px;
+  cursor: pointer;
+
+}
+
+input:focus{
+  box-shadow: none;
+  outline: none;
+}
 /*responsive changes*/
 
 @media screen and (max-width: 1280px) {

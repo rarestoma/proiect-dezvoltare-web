@@ -1,7 +1,7 @@
 <!-- taguri semantice folosite: header, nav, section, footer -->
 
 <!DOCTYPE html>
-<html lang="ro">
+<html>
 <head>
 <title>Proiect Dezvoltare Web</title>
 <meta charset="UTF-8">
@@ -9,26 +9,29 @@
 <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
-<body onload="createTable()">
+<body onload="createTable()" onmousemove="myFunction(event)">
 
 <header class="header">
   <h1>Munții Bucegi</h1>
 </header>
 
-<nav class="navbar" id="demo">
+<nav class="navbar">
   <a href="index.html" class="active">Acasa</a>
   <a href="resurse.html">Resurse</a>
   <a href="geografie.html">Geografie</a>
   <a href="clima.html">Clima</a>
-  <button type="button" onclick="loadDoc()">Change Content</button>
-
 </nav>
+
+<div id="demo">
+  <h1>The XMLHttpRequest Object</h1>
+  <button type="button" onclick="loadDoc()">Change Content</button>
+</div>
 
 <section>
   <div class="row">
     <div class="col-3 text-center">
         <h2>RESURSE</h2>
-        <img src="assets/img/calcar.JPG" alt="Image">
+        <img src="assets/img/calcar.JPG" id="img1">
         <p>Bucegii au puține bogății naturale,
           folosindu-se pentru piatră de construcții sau
           fiind folosiți ca pășuni pentru oi, parte din transhumanță.
@@ -37,7 +40,7 @@
     </div>
     <div class="col-3 text-center">
         <h2>GEOGRAFIE</h2>
-        <img src="assets/img/sfinx.jpg"  alt="Image">
+        <img src="assets/img/sfinx.jpg" id="img2">
         <p>Masivul Bucegi are o formă de potcoavă deschisă
           spre sud, din centrul căreia izvorește râul Ialomița.
         </p>
@@ -45,7 +48,7 @@
       </div>
     <div class="col-3 text-center">
       <h2>CLIMA</h2>
-      <img src="assets/img/clima.jpg"  alt="Image">
+      <img src="assets/img/clima.jpg" id="img3">
       <p>Clima se caracterizează prin temperaturi medii
         de <b>2-6°</b> Celsius și <b>0-2°</b> Celsius la peste <b>1800 m</b> altitudine,
         precipitații abundente de <b>800–1200 mm/an</b> și vânturi puternice.
@@ -59,15 +62,11 @@
     <h2>Adauga un review</h2>
   </div>
   <p>
-    <input type="button" id="addRow" value="Add New Row" onclick="addRow()" />
+    <input type="button" id="addRow" value="Adaugă un review" onclick="addRow()" />
   </p>
 
   <!--In acest div va fi adaugat tabelul-->
   <div id="content"></div>
-
-  <p>
-    <input type="button" id="bt" value="Sumbit Data" onclick="sumbit()" />
-  </p>
 
   <div id="info"></div>
 
