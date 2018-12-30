@@ -90,7 +90,6 @@ fetch('db.json')
 
       // Examine the text in the response
       response.json().then(function(data) {
-        console.log(data);
 
         var info = new Array();
         info = data;
@@ -101,6 +100,8 @@ fetch('db.json')
   .catch(function(err) {
     console.log('Fetch Error', err);
   });
+  console.log("test");
+  console.log(info);
 
 function showData(){
   var datatable = document.createElement('table');
