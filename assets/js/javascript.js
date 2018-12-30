@@ -94,6 +94,8 @@ fetch('db.json')
         var info = new Array();
         info = data;
 
+        console.log(data);
+
       });
     }
   )
@@ -101,8 +103,7 @@ fetch('db.json')
     console.log('Fetch Error', err);
   });
 
-  console.log("test");
-  console.log(data);
+
 
 function showData(){
   var datatable = document.createElement('table');
