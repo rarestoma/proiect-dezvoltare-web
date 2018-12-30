@@ -94,6 +94,8 @@ fetch('db.json')
 
         var info = new Array();
         info = data;
+
+        console.log(info);
       });
     }
   )
