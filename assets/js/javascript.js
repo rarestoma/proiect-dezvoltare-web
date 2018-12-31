@@ -116,5 +116,5 @@ fetch('db.json')
 
   var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
   xmlhttp.open("POST", "/json-handler");
-  xmlhttp.setRequestHeader("Content-Type", 'db.json');
+  xmlhttp.setRequestHeader("Content-Type", 'https://rarestoma.github.io/proiect-dezvoltare-web/db.json');
   xmlhttp.send(JSON.stringify({"id": 10, "name": "baci", "img": "https:\/\/dog.ceo\/api\/img\/affenpinscher\/n02110627_11584.jpg"}));
