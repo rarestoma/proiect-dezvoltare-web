@@ -94,8 +94,6 @@ fetch('db.json')
         var info = new Array();
         info = data;
 
-        console.log(info.dogs[1].id);
-
         var news = document.getElementsByClassName("news-story")[0];
 
         for(var i = 0; i < info.dogs.length; i++) {
@@ -114,3 +112,9 @@ fetch('db.json')
   .catch(function(err) {
     console.log('Fetch Error', err);
   });
+
+
+  var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+  xmlhttp.open("POST", "/json-handler");
+  xmlhttp.setRequestHeader("Content-Type", 'db.json');
+  xmlhttp.send(JSON.stringify({"id": 10, "name": "baci", "img": "https:\/\/dog.ceo\/api\/img\/affenpinscher\/n02110627_11584.jpg"}));
