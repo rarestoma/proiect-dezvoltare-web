@@ -95,7 +95,7 @@ fetch('db.json')
         info = data;
         console.log("control");
         console.log(info);
-        console.log(info[1].id);
+        console.log(info[1]);
 
       });
     }
