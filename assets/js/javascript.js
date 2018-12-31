@@ -93,9 +93,20 @@ fetch('db.json')
 
         var info = new Array();
         info = data;
-        console.log("control");
-        console.log(info);
+
         console.log(info.dogs[1].id);
+
+        var news = document.getElementsByClassName("news-story")[0];
+
+        for(var i = 0; i < info.dogs.length; i++) {
+            var h5 = document.createElement("h5");
+            h5.innerHTML = info.dogs[i].id;
+            news.appendChild(h5);
+            var p = document.createElement("p");
+            p.innerHTML = info.dogs[i].name;
+            news.appendChild(p);
+
+        }
 
       });
     }
@@ -103,6 +114,3 @@ fetch('db.json')
   .catch(function(err) {
     console.log('Fetch Error', err);
   });
-
-  console.log("dupa functie");
-  console.log(info);
