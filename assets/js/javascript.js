@@ -93,7 +93,7 @@ fetch('db.json')
 
         var info = new Array();
         info = data;
-
+        console.log("control");
         console.log(info[1].id);
 
       });
