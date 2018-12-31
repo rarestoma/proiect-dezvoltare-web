@@ -103,3 +103,6 @@ fetch('db.json')
   .catch(function(err) {
     console.log('Fetch Error', err);
   });
+
+  console.log("dupa functie");
+  console.log(info);
