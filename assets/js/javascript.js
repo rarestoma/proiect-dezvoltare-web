@@ -117,7 +117,7 @@ var url  = "db.json";
 var xhr  = new XMLHttpRequest()
 xhr.open('GET', url, true)
 xhr.onload = function () {
-	var users = JSON.parse(xhr.responseText);
+	var data = JSON.parse(xhr.responseText);
 	if (xhr.readyState == 4 && xhr.status == "200") {
 
     console.log(data);
