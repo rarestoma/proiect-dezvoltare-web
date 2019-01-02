@@ -119,10 +119,10 @@ xhr.open('GET', url, true)
 xhr.onload = function () {
 	var users = JSON.parse(xhr.responseText);
 	if (xhr.readyState == 4 && xhr.status == "200") {
-		console.table(users);
-    console.log(users);
+
+    console.log(data);
 	} else {
-		console.error(users);
+		console.error(data);
 	}
 }
 xhr.send(null);
