@@ -77,76 +77,113 @@
   };
 
 
+
+
 //AJAX
 
-// fetch('db.json')
-//   .then(
-//     function(response) {
-//       if (response.status !== 200) {
-//         console.log('Looks like there was a problem. Status Code: ' +
-//           response.status);
-//         return;
-//       }
+ var url  = "http://localhost:3000/contact";
+// var xhr  = new XMLHttpRequest()
+// xhr.open('GET', url, true)
+// xhr.onload = function () {
+// 	var datas = JSON.parse(xhr.responseText);
+//   console.log(datas);
+//   console.log(datas.contact[1].nume);
+// 	if (xhr.readyState == 4 && xhr.status == "200") {
 //
-//       // Examine the text in the response
-//       response.json().then(function(data) {
-//
-//         var info = new Array();
-//         info = data;
+//    console.log(datas);
+//    var info = new Array();
+//         info = datas;
+//         console.log(info);
 //
 //         var news = document.getElementsByClassName("news-story")[0];
 //
-//         for(var i = 0; i < info.dogs.length; i++) {
+//         for(var i = 0; i < info.contact.length; i++) {
 //             var h5 = document.createElement("h5");
-//             h5.innerHTML = info.dogs[i].id;
+//             h5.innerHTML = info.contact[i].id;
 //             news.appendChild(h5);
 //             var p = document.createElement("p");
-//             p.innerHTML = info.dogs[i].name;
+//             p.innerHTML = info.contact[i].nume;
 //             news.appendChild(p);
 //
 //         }
 //
-//       });
-//     }
-//   )
-//   .catch(function(err) {
-//     console.log('Fetch Error', err);
-//   });
-
-// var url  = "db.json";
-// var xhr  = new XMLHttpRequest()
-// xhr.open('GET', url, true)
-// xhr.onload = function () {
-// 	var data = JSON.parse(xhr.responseText);
-// 	if (xhr.readyState == 4 && xhr.status == "200") {
-//
-//     // console.log(data);
 // 	} else {
-// 		console.error(data);
+// 		console.error(datas);
 // 	}
 // }
 // xhr.send(null);
 
+fetch(url)
+  .then(
+    function(response) {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
+      }
+
+      // Examine the text in the response
+      response.json().then(function(data) {
+
+        var info = new Array();
+        info = data;
+
+        var news = document.getElementsByClassName("news-story")[0];
+
+        for(var i = 0; i < info.dogs.length; i++) {
+            var h5 = document.createElement("h5");
+            h5.innerHTML = info.dogs[i].id;
+            news.appendChild(h5);
+            var p = document.createElement("p");
+            p.innerHTML = info.dogs[i].name;
+            news.appendChild(p);
+
+        }
+
+      });
+    }
+  )
+  .catch(function(err) {
+    console.log('Fetch Error', err);
+  });
+
 
 // Post a user
-var url = "db.json";
+function inputData() {
+  var data = {};
 
-var data = {};
-data.id = "John";
-data.name  = "Snow";
-data.img = "unknown";
-var json = JSON.stringify(data);
+  data.nume  = document.getElementById("nume").value;
+  data.prenume  = document.getElementById("prenume").value;
+  data.email  = document.getElementById("email").value;
+  data.text = document.getElementById("text").value;
+  var json = JSON.stringify(data);
 
-var xhr = new XMLHttpRequest();
-xhr.open("POST", url, true);
-xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
-xhr.onload = function () {
-	var users = JSON.parse(xhr.responseText);
-	if (xhr.readyState == 4 && xhr.status == "201") {
-		console.table(users);
-    console.log(users);
-	} else {
-		console.error(users);
-	}
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+  xhr.onload = function () {
+  	var users = xhr.responseText;
+  	if (xhr.readyState == 4 && xhr.status == "201") {
+  		console.table(users);
+  	} else {
+  		console.error(users);
+  	}
+  }
+  xhr.send(json);
 }
-xhr.send(json);
+
+// Delete a user
+function deleteUser(){
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("DELETE", url+'/1', true);
+  xhr.onload = function () {
+  	var users = JSON.parse(xhr.responseText);
+  	if (xhr.readyState == 4 && xhr.status == "200") {
+  		console.table(users);
+  	} else {
+  		console.error(users);
+  	}
+  }
+  xhr.send(null);
+}

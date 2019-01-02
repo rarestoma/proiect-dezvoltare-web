@@ -97,6 +97,19 @@ img{
   padding: 20px;
 }
 
+.m-auto{
+  margin: auto;
+}
+
+.w-100{
+  width: 100%;
+}
+
+.admin-panel{
+  position: absolute;
+  right: 0;
+}
+
 * {
   font-famil: 'verdana';
 }
@@ -106,6 +119,10 @@ table {
 }
 input {
   margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: none;
+  border: 1px solid grey;
 }
 th, td {
   border: 1px solid #ccc;
