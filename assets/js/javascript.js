@@ -130,7 +130,7 @@ fetch(url)
 
         var news = document.getElementsByClassName("news-story")[0];
 
-        for(var i = 0; i < info.dogs.length; i++) {
+        for(var i = 0; i < info.contact.length; i++) {
             var h5 = document.createElement("h5");
             h5.innerHTML = info.dogs[i].id;
             news.appendChild(h5);
