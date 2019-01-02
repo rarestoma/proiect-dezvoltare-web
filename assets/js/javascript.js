@@ -79,42 +79,50 @@
 
 //AJAX
 
-fetch('db.json')
-  .then(
-    function(response) {
-      if (response.status !== 200) {
-        console.log('Looks like there was a problem. Status Code: ' +
-          response.status);
-        return;
-      }
+// fetch('db.json')
+//   .then(
+//     function(response) {
+//       if (response.status !== 200) {
+//         console.log('Looks like there was a problem. Status Code: ' +
+//           response.status);
+//         return;
+//       }
+//
+//       // Examine the text in the response
+//       response.json().then(function(data) {
+//
+//         var info = new Array();
+//         info = data;
+//
+//         var news = document.getElementsByClassName("news-story")[0];
+//
+//         for(var i = 0; i < info.dogs.length; i++) {
+//             var h5 = document.createElement("h5");
+//             h5.innerHTML = info.dogs[i].id;
+//             news.appendChild(h5);
+//             var p = document.createElement("p");
+//             p.innerHTML = info.dogs[i].name;
+//             news.appendChild(p);
+//
+//         }
+//
+//       });
+//     }
+//   )
+//   .catch(function(err) {
+//     console.log('Fetch Error', err);
+//   });
 
-      // Examine the text in the response
-      response.json().then(function(data) {
-
-        var info = new Array();
-        info = data;
-
-        var news = document.getElementsByClassName("news-story")[0];
-
-        for(var i = 0; i < info.dogs.length; i++) {
-            var h5 = document.createElement("h5");
-            h5.innerHTML = info.dogs[i].id;
-            news.appendChild(h5);
-            var p = document.createElement("p");
-            p.innerHTML = info.dogs[i].name;
-            news.appendChild(p);
-
-        }
-
-      });
-    }
-  )
-  .catch(function(err) {
-    console.log('Fetch Error', err);
-  });
-
-
-  var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-  xmlhttp.open("POST", "/json-handler");
-  xmlhttp.setRequestHeader("Content-Type", 'https://rarestoma.github.io/proiect-dezvoltare-web/db.json');
-  xmlhttp.send(JSON.stringify({"id": 10, "name": "baci", "img": "https:\/\/dog.ceo\/api\/img\/affenpinscher\/n02110627_11584.jpg"}));
+var url  = "db.json";
+var xhr  = new XMLHttpRequest()
+xhr.open('GET', url, true)
+xhr.onload = function () {
+	var users = JSON.parse(xhr.responseText);
+	if (xhr.readyState == 4 && xhr.status == "200") {
+		console.table(users);
+    console.log(users);
+	} else {
+		console.error(users);
+	}
+}
+xhr.send(null);
