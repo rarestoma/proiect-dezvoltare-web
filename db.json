@@ -1,15 +1,15 @@
 {
   "contact": [
     {
-      "id": 1,
       "nume": "Adrian",
       "prenume": "Mos",
       "email": "adrian@gmail.com",
-      "text": "Imi place"
+      "text": "Imi place",
+      "id": 1
     },
     {
       "id": 2,
-      "name": "Toma",
+      "nume": "Toma",
       "prenume": "Rares",
       "email": "rares@gmail.com",
       "text": "util"
